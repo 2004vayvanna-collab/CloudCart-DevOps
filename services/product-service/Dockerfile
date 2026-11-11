@@ -1,6 +1,6 @@
 
-# Stage 1: Build the Java application
-FROM eclipse-temurin:21-jdk AS build
+# Stage 1: Build Spring Boot
+FROM eclipse-temurin:21-jdk-noble AS build
 
 WORKDIR /app
 
@@ -8,8 +8,8 @@ COPY . .
 
 RUN chmod +x mvnw && ./mvnw -B -DskipTests package
 
-# Stage 2: Run the application
-FROM eclipse-temurin:21-jre
+# Stage 2: Run Spring Boot
+FROM eclipse-temurin:21-jre-noble
 
 WORKDIR /app
 

@@ -55,7 +55,7 @@ jobs:
           ./mvnw -B clean verify
 
       - name: Build Docker image
-        run: docker build -t cloudcart-product-service:ci .
+        run: docker build --pull --no-cache -t cloudcart-product-service:ci .
 
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@v0.36.0
@@ -92,6 +92,7 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: ./services/product-service
+          pull: true
           push: true
           tags: |
             ghcr.io/2004vayvanna-collab/cloudcart-product-service:latest
