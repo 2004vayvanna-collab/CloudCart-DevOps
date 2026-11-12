@@ -1,0 +1,25 @@
+
+replicaCount: 1
+
+image:
+  repository: cloudcart-product-service
+  tag: k8s
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8081
+
+database:
+  host: postgres
+  port: 5432
+  name: cloudcart_products
+  username: cloudcart
+  existingSecret: postgres-secret
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    memory: 512Mi

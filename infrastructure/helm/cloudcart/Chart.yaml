@@ -1,0 +1,7 @@
+
+apiVersion: v2
+name: cloudcart
+description: Helm chart for CloudCart Product Service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
